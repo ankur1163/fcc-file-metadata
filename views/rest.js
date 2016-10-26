@@ -3,16 +3,15 @@ $(document).ready(function(){
     e.preventDefault();
     var url = $('#url').val();
     $('#short-url').text('Loading.......');
-    $.post('https://fcc-url-shortener-63.herokuapp.com/process?' + $.param({url: url}))
+    $.post('/filesize')
     .done(function(data){
       $('input').val('');
-      $('input').focus();
-      console.log(data);
-      $('#short-url').html('<strong>Short Url: </strong><a target="_blank" href='+data.short_url+'>'+data.short_url+'</a>');
+      var fin = JSON.stringify(data);
+    $('#filesize').html('<strong>Error: </strong>Submit a valid file');
     })
     .fail(function(xhr, status, err){
       console.log(err);
-      $('#short-url').html('<strong>Error: </strong>Please provide valid url like http://example.com');
+      $('#short-url').html('<strong>Error: </strong>Submit a valid file');
     });
   });
 });
