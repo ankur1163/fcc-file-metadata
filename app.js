@@ -14,13 +14,14 @@ app.get("/",function(req,res){
 });
 
 app.post('/filesize', upload.single('avatar'), function (req, res, next) {
+
   // req.file is the `avatar` file
   // req.body will hold the text fields, if there were any
   console.log(req.file);
-  data:{
+  var data= {
     filesize:req.file.size
-  }
+  };
   console.log(data);
 
-  res.send(req.file);
+  res.send(data);
 })
