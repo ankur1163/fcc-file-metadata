@@ -4,6 +4,7 @@ var path = require('path');
 var app = express();
 var multer  = require('multer');
 var upload = multer({ dest: 'uploads/' });
+var t;
 
 app.use(express.static(path.join(__dirname, 'views')));
 
